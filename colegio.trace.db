@@ -1,0 +1,56 @@
+2023-12-05 00:50:20.884275Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" ya existe
+Table "ALUMNO" already exists; SQL statement:
+CREATE TABLE ALUMNO(id INTEGER PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR not null, telefono INTEGER, direccion VARCHAR) [42101-224]
+2023-12-05 00:50:33.597275Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" no encontrada
+Table "ALUMNO" not found; SQL statement:
+DROP TABLE ALUMNO [42102-224]
+2023-12-05 00:53:28.685275Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" no encontrada
+Table "ALUMNO" not found; SQL statement:
+DROP TABLE ALUMNO [42102-224]
+2023-12-05 00:54:03.417277Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" ya existe
+Table "ALUMNO" already exists; SQL statement:
+CREATE TABLE ALUMNO(id INTEGER PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR not null, telefono INTEGER, direccion VARCHAR) [42101-224]
+2023-12-05 00:56:01.131276Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" ya existe
+Table "ALUMNO" already exists; SQL statement:
+CREATE TABLE ALUMNO(id INTEGER PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR not null, telefono INTEGER, direccion VARCHAR) [42101-224]
+2023-12-05 00:56:16.543274Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" no encontrada
+Table "ALUMNO" not found; SQL statement:
+DROP TABLE ALUMNO [42102-224]
+2023-12-05 00:59:33.260300Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" ya existe
+Table "ALUMNO" already exists; SQL statement:
+CREATE TABLE ALUMNO(id INTEGER PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR not null, telefono INTEGER, direccion VARCHAR) [42101-224]
+2023-12-05 01:03:44.340307Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" ya existe
+Table "ALUMNO" already exists; SQL statement:
+CREATE TABLE ALUMNO(id INTEGER PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR not null, telefono INTEGER, direccion VARCHAR) [42101-224]
+2023-12-05 01:04:00.330306Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" ya existe
+Table "ALUMNO" already exists; SQL statement:
+CREATE TABLE ALUMNO(id INTEGER PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR not null, telefono INTEGER, direccion VARCHAR) [42101-224]
+2023-12-05 01:04:03.203307Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" no encontrada
+Table "ALUMNO" not found; SQL statement:
+DROP TABLE ALUMNO [42102-224]
+2023-12-05 01:05:01.978307Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" ya existe
+Table "ALUMNO" already exists; SQL statement:
+CREATE TABLE ALUMNO(id INTEGER PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR not null, telefono INTEGER, direccion VARCHAR) [42101-224]
+2023-12-05 01:05:08.785307Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" no encontrada
+Table "ALUMNO" not found; SQL statement:
+DROP TABLE ALUMNO [42102-224]
+2023-12-05 01:05:09.620312Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" no encontrada
+Table "ALUMNO" not found; SQL statement:
+DROP TABLE ALUMNO [42102-224]
+2023-12-05 01:05:10.651307Z jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNO" no encontrada
+Table "ALUMNO" not found; SQL statement:
+DROP TABLE ALUMNO [42102-224]

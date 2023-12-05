@@ -1,13 +1,62 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.francisco.entities;
 
-/**
- *
- * @author OTOKODA
- */
+import java.util.ArrayList;
+
+
 public class Alumno {
+    
+    int id;
+    String nombre;
+    int telefono;
+    ArrayList <String> direccion;
+
+    public Alumno() {
+    }
+
+    public Alumno(int id, String nombre, int telefono, ArrayList<String> direccion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public ArrayList<String> getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(ArrayList<String> direccion) {
+        this.direccion = direccion;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + '}';
+    }
+    
+    
     
 }

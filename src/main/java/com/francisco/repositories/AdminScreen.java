@@ -1,14 +1,18 @@
 package com.francisco.repositories;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 
 public class AdminScreen extends javax.swing.JFrame {
 
+    Connection connection;
 
-    public AdminScreen() {
+    public AdminScreen(Connection connection) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.connection = connection;
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -17,7 +21,7 @@ public class AdminScreen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        textArea = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         creationTableMenu = new javax.swing.JMenu();
         deleteTableMenu = new javax.swing.JMenu();
@@ -44,11 +48,11 @@ public class AdminScreen extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PRÁCTICA JDBC ACCESO A DATOS");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        textArea.setEditable(false);
+        textArea.setColumns(20);
+        textArea.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        textArea.setRows(5);
+        jScrollPane1.setViewportView(textArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -72,7 +76,7 @@ public class AdminScreen extends javax.swing.JFrame {
 
         jMenuBar1.setMinimumSize(new java.awt.Dimension(700, 30));
 
-        creationTableMenu.setText("CREAR TABLA");
+        creationTableMenu.setText("CREAR TABLAS");
         creationTableMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 creationTableMenuMouseClicked(evt);
@@ -219,15 +223,51 @@ public class AdminScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void disconnectJMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disconnectJMenuMouseClicked
+
+        try {
+            connection.close();
+            System.out.println("Conexión con el servidor cerrada.");
+        } catch (SQLException ex) {
+
+            textArea.append("No se ha podido cerrar la conexion con el servidor\n");
+            textArea.append(ex.getMessage() + "\n");
+            textArea.append("-1");
+            textArea.append("\n----------------------------------------------------\n");
+
+        }
         this.dispose();
     }//GEN-LAST:event_disconnectJMenuMouseClicked
 
     private void creationTableMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creationTableMenuMouseClicked
-        // TODO add your handling code here:
+
+        String query = "CREATE TABLE ALUMNO(id INTEGER PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR not null, telefono INTEGER, direccion VARCHAR)";
+        try {
+            JDBCOperations.createTable(connection, query);
+            textArea.append("Tabla ALUMNO creada con exito.");
+            textArea.append("\n----------------------------------------------------\n");
+        } catch (SQLException ex) {
+            textArea.append("No se ha podido ejecutar la consulta: " + query + "\n");
+            textArea.append(ex.getMessage() + "\n");
+            textArea.append("-2");
+            textArea.append("\n----------------------------------------------------\n");
+
+        }
     }//GEN-LAST:event_creationTableMenuMouseClicked
 
     private void deleteTableMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteTableMenuMouseClicked
-        // TODO add your handling code here:
+
+        String query = "DROP TABLE ALUMNO";
+        try {
+            JDBCOperations.dropTable(connection, query);
+            textArea.append("Tabla ALUMNO eliminada con exito.");
+            textArea.append("\n----------------------------------------------------\n");
+        } catch (SQLException ex) {
+            textArea.append("No se ha podido ejecutar la consulta: " + query + "\n");
+            textArea.append(ex.getMessage() + "\n");
+            textArea.append("-2");
+            textArea.append("\n----------------------------------------------------\n");
+
+        }
     }//GEN-LAST:event_deleteTableMenuMouseClicked
 
     private void queryUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_queryUnoActionPerformed
@@ -274,43 +314,6 @@ public class AdminScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_queryLibreMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdminScreen().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem actualizarDos;
@@ -329,12 +332,12 @@ public class AdminScreen extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JMenuItem queryDos;
     private javax.swing.JMenu queryLibre;
     private javax.swing.JMenu queryMenu;
     private javax.swing.JMenuItem queryTres;
     private javax.swing.JMenuItem queryUno;
+    private javax.swing.JTextArea textArea;
     private javax.swing.JMenu updateMenu;
     // End of variables declaration//GEN-END:variables
 }
