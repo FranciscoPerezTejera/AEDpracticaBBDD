@@ -1,6 +1,7 @@
 package com.francisco.repositories;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -23,15 +24,23 @@ public class JDBCOperations {
     public static void createTable(Connection con, String query) throws SQLException {
 
         Statement newStatement = createSentence(con);
-            newStatement.execute(query);
+        newStatement.execute(query);
+        newStatement.close();
     }
 
     public static void dropTable(Connection con, String query) throws SQLException {
 
         Statement newStatement = createSentence(con);
-
         newStatement.execute(query);
+        newStatement.close();
 
     }
+    
+    public static ResultSet query(Connection con, String query) throws SQLException {
 
+        Statement newStatement = createSentence(con);
+        ResultSet executeQuery = newStatement.executeQuery(query);
+        newStatement.close();
+        return executeQuery;
+    }
 }

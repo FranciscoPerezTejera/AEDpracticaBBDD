@@ -1,13 +1,8 @@
 package com.francisco.connection;
 
 import com.francisco.repositories.AdminScreen;
-import com.francisco.repositories.JDBCOperations;
-import com.francisco.repositories.LoginScreen;
 import java.nio.file.Path;
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class Main {

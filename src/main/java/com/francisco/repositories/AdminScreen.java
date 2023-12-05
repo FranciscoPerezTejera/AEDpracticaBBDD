@@ -1,8 +1,8 @@
 package com.francisco.repositories;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
 
 public class AdminScreen extends javax.swing.JFrame {
 
@@ -240,15 +240,19 @@ public class AdminScreen extends javax.swing.JFrame {
 
     private void creationTableMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creationTableMenuMouseClicked
 
-        String query = "CREATE TABLE ALUMNO(id INTEGER PRIMARY KEY AUTO_INCREMENT, nombre VARCHAR not null, telefono INTEGER, direccion VARCHAR)";
+        String query
+                = "CREATE TABLE ALUMNO (id INTEGER PRIMARY KEY, nombre VARCHAR(255), telefono INTEGER,direccion VARCHAR(255));\n"
+                + "CREATE TABLE DIRECCION (id INTEGER PRIMARY KEY, idAlumno INTEGER,direccion VARCHAR(255), FOREIGN KEY (idAlumno) REFERENCES Alumno(id));\n"
+                + "CREATE TABLE FAMILIAR (id INTEGER PRIMARY KEY,idAlumno INTEGER, nombre VARCHAR(255),sexo VARCHAR(1),telefono INTEGER,custodia BOOLEAN,FOREIGN KEY (idAlumno) REFERENCES Alumno(id));\n"
+                + "CREATE TABLE ASIGNATURA (id INTEGER PRIMARY KEY,idAlumno INTEGER,nombreAsignatura VARCHAR(255),curso VARCHAR(255),notas INTEGER,FOREIGN KEY (idAlumno) REFERENCES Alumno(id));";
         try {
             JDBCOperations.createTable(connection, query);
-            textArea.append("Tabla ALUMNO creada con exito.");
+            textArea.append("Tablas y referencias creadas con exito.");
             textArea.append("\n----------------------------------------------------\n");
         } catch (SQLException ex) {
             textArea.append("No se ha podido ejecutar la consulta: " + query + "\n");
             textArea.append(ex.getMessage() + "\n");
-            textArea.append("-2");
+            textArea.append("-1");
             textArea.append("\n----------------------------------------------------\n");
 
         }
@@ -256,7 +260,11 @@ public class AdminScreen extends javax.swing.JFrame {
 
     private void deleteTableMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteTableMenuMouseClicked
 
-        String query = "DROP TABLE ALUMNO";
+        String query = "DROP TABLE IF EXISTS ASIGNASTURA;\n"
+                + "DROP TABLE IF EXISTS FFAMILIAR;\n"
+                + "DROP TABLE IF EXISTS DDIRECCION;\n"
+                + "DROP TABLE IF EXISTS ALUMNO;";
+
         try {
             JDBCOperations.dropTable(connection, query);
             textArea.append("Tabla ALUMNO eliminada con exito.");
@@ -271,15 +279,57 @@ public class AdminScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteTableMenuMouseClicked
 
     private void queryUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_queryUnoActionPerformed
-        // TODO add your handling code here:
+
+        String query = "SELECT * FROM ALUMNO WHERE nombre = Carlos;\n"
+                + "SELECT * FROM ALUMNO WHERE nombre = Pedro;\n"
+                + "SELECT * FROM ALUMNO WHERE nombre = Javier;";
+
+        try {
+            ResultSet queryOneResult = JDBCOperations.query(connection, query);
+            textArea.append(queryOneResult.toString());
+            textArea.append("\n----------------------------------------------------\n");
+        } catch (SQLException ex) {
+            textArea.append("No se ha podido ejecutar la consulta: " + query + "\n");
+            textArea.append(ex.getMessage() + "\n");
+            textArea.append("-3");
+            textArea.append("\n----------------------------------------------------\n");
+
+        }
+
     }//GEN-LAST:event_queryUnoActionPerformed
 
     private void queryDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_queryDosActionPerformed
-        // TODO add your handling code here:
+
+        String query = "SELECT * FROM ALUMNO;";
+
+        try {
+            ResultSet queryTwoResult = JDBCOperations.query(connection, query);
+            textArea.append(queryTwoResult.toString());
+            textArea.append("\n----------------------------------------------------\n");
+        } catch (SQLException ex) {
+            textArea.append("No se ha podido ejecutar la consulta: " + query + "\n");
+            textArea.append(ex.getMessage() + "\n");
+            textArea.append("-3");
+            textArea.append("\n----------------------------------------------------\n");
+        }
     }//GEN-LAST:event_queryDosActionPerformed
 
     private void queryTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_queryTresActionPerformed
-        // TODO add your handling code here:
+
+        String query = "SELECT a.id AS alumno_id,a.nombre AS alumno_nombre,f.nombre AS familiar_nombre,f.sexo AS familiar_sexo,"
+                + "f.telefono AS familiar_telefono, f.custodia AS familiar_custodiaFROM ALUMNO a JOIN FAMILIAR f "
+                + "ON a.id = f.idAlumno WHERE a.id IN (1, 2, 3, 4);";
+
+        try {
+            ResultSet queryThreeResult = JDBCOperations.query(connection, query);
+            textArea.append(queryThreeResult.toString());
+            textArea.append("\n----------------------------------------------------\n");
+        } catch (SQLException ex) {
+            textArea.append("No se ha podido ejecutar la consulta: " + query + "\n");
+            textArea.append(ex.getMessage() + "\n");
+            textArea.append("-3");
+            textArea.append("\n----------------------------------------------------\n");
+        }
     }//GEN-LAST:event_queryTresActionPerformed
 
     private void insertarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarUnoActionPerformed
