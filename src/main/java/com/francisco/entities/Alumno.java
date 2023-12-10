@@ -8,12 +8,12 @@ public class Alumno {
     int id;
     String nombre;
     int telefono;
-    ArrayList <String> direccion;
+    String direccion;
 
     public Alumno() {
     }
-
-    public Alumno(int id, String nombre, int telefono, ArrayList<String> direccion) {
+    
+    public Alumno(int id, String nombre, int telefono, String direccion) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -44,11 +44,11 @@ public class Alumno {
         this.telefono = telefono;
     }
 
-    public ArrayList<String> getDireccion() {
+    public String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(ArrayList<String> direccion) {
+    public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 

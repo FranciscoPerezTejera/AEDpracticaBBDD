@@ -32,7 +32,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="queryUno">
               <Properties>
-                <Property name="text" type="java.lang.String" value="QUERY 1"/>
+                <Property name="text" type="java.lang.String" value="1.- Consultas de 3 alumnos por nombre"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="queryUnoActionPerformed"/>
@@ -40,7 +40,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="queryDos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="QUERY 2"/>
+                <Property name="text" type="java.lang.String" value="2.- Consultar todos los alumnos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="queryDosActionPerformed"/>
@@ -48,7 +48,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="queryTres">
               <Properties>
-                <Property name="text" type="java.lang.String" value="QUERY 3"/>
+                <Property name="text" type="java.lang.String" value="3.-  Consultar 4 alumnos para saber que familiares tiene la custodia"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="queryTresActionPerformed"/>
@@ -63,7 +63,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="insertarUno">
               <Properties>
-                <Property name="text" type="java.lang.String" value="INSERTAR 1"/>
+                <Property name="text" type="java.lang.String" value="1.- Insertar un Alumno"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insertarUnoActionPerformed"/>
@@ -71,7 +71,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="insertarDos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="INSERTAR 2"/>
+                <Property name="text" type="java.lang.String" value="2.- Insertar una Direcci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insertarDosActionPerformed"/>
@@ -79,7 +79,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="insertarTres">
               <Properties>
-                <Property name="text" type="java.lang.String" value="INSERTAR 3"/>
+                <Property name="text" type="java.lang.String" value="3.- Insertar un Familiar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insertarTresActionPerformed"/>
@@ -94,7 +94,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="actualizarUno">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ACTUALIZAR 1"/>
+                <Property name="text" type="java.lang.String" value="1.- Modificar asignatura de un Alumno"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="actualizarUnoActionPerformed"/>
@@ -102,7 +102,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="actualizarDos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ACTUALIZAR 2"/>
+                <Property name="text" type="java.lang.String" value="2.- Modificar el estado de custodia de un Familiar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="actualizarDosActionPerformed"/>
@@ -117,7 +117,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="eliminarUno">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ELIMINAR 1"/>
+                <Property name="text" type="java.lang.String" value="1.- Elimina un Alumno y su Direcci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarUnoActionPerformed"/>
@@ -125,7 +125,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="eliminarDos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ELIMINAR 2"/>
+                <Property name="text" type="java.lang.String" value="2.- Elimina una asignatura del alumno"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarDosActionPerformed"/>
@@ -137,9 +137,24 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="CONSULTA LIBRE"/>
           </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="queryLibreMouseClicked"/>
-          </Events>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="crearTablaProfesores">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="1.- Crea la tabla Pofresor, referenciada con asignatura"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crearTablaProfesoresActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="a&#xf1;adirProfesor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="2.- A&#xf1;ade un profesor"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="a&#xf1;adirProfesorActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="disconnectJMenu">
           <Properties>
@@ -236,6 +251,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
                 </Property>
+                <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
             </Component>

@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         
-        String urlH2 = "jdbc:h2:"+Path.of("colegio").toAbsolutePath().toString();
+        String urlH2 = "jdbc:h2:"+Path.of("instituto").toAbsolutePath().toString();
         String username = "root";
         String password = "1234";
         
